@@ -1,0 +1,1143 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VANGUARDIA FREIGHT | Transporte de Carga en Plataforma y Caja Seca</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Montserrat & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@600;700;800;900&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Industrial & Logistics Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Montserrat', 'sans-serif'],
+                    },
+                    colors: {
+                        navy: {
+                            950: '#080D1A',
+                            900: '#0F172A',
+                            800: '#1E293B',
+                            700: '#334155',
+                        },
+                        brand: {
+                            orange: '#F97316',
+                            orangeHover: '#EA580C',
+                            orangeLight: '#FFF7ED',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom Industrial Grid & Hero Overlay Styling */
+        .hero-bg {
+            background-image: linear-gradient(105deg, rgba(15, 23, 42, 0.94) 0%, rgba(15, 23, 42, 0.82) 55%, rgba(15, 23, 42, 0.55) 100%),
+                              url('https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&w=2000&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .industrial-pattern {
+            background-image: radial-gradient(#334155 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+
+        /* Scroll Reveal Animation */
+        .reveal {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Custom Range Slider */
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            background: #F97316;
+            cursor: pointer;
+            border: 3px solid #FFFFFF;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased overflow-x-hidden">
+
+    <!-- Top Emergency & Dispatch Bar -->
+    <div class="bg-navy-950 text-slate-300 text-xs py-2 border-b border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-wrap justify-between items-center gap-2">
+            <div class="flex items-center space-x-4">
+                <span class="flex items-center text-emerald-400 font-medium">
+                    <span class="w-2 h-2 rounded-full bg-emerald-400 mr-2 animate-pulse"></span>
+                    Torre de Control Activa 24/7
+                </span>
+                <span class="hidden sm:inline text-slate-500">|</span>
+                <span class="hidden sm:inline"><i class="fa-solid fa-shield-halved text-brand-orange mr-1.5"></i>Unidades con Rastreo GPS Satelital y Paro de Motor</span>
+            </div>
+            <div class="flex items-center space-x-4 font-medium">
+                <a href="tel:+528008904500" class="hover:text-brand-orange transition-colors">
+                    <i class="fa-solid fa-phone-volume text-brand-orange mr-1"></i> Despacho Nacional: 800-890-4500
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Sticky Navbar -->
+    <header id="navbar" class="sticky top-0 z-50 bg-navy-900/95 backdrop-blur-md border-b border-slate-800 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Brand Logo -->
+                <a href="#inicio" class="flex items-center space-x-3 group">
+                    <div class="w-11 h-11 bg-brand-orange rounded-xl flex items-center justify-center shadow-lg shadow-orange-500/20 group-hover:scale-105 transition-transform">
+                        <i class="fa-solid fa-truck-fast text-white text-xl"></i>
+                    </div>
+                    <div>
+                        <span class="font-heading font-black text-xl tracking-tight text-white block leading-none">VANGUARDIA</span>
+                        <span class="font-heading font-bold text-[11px] tracking-[0.25em] text-brand-orange block mt-0.5">FREIGHT LOGISTICS</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Navigation Links -->
+                <nav class="hidden md:flex items-center space-x-8">
+                    <a href="#inicio" class="text-sm font-medium text-slate-200 hover:text-brand-orange transition-colors">Inicio</a>
+                    <a href="#servicios" class="text-sm font-medium text-slate-200 hover:text-brand-orange transition-colors">Servicios</a>
+                    <a href="#flota" class="text-sm font-medium text-slate-200 hover:text-brand-orange transition-colors">Flota y Capacidades</a>
+                    <a href="#seguridad" class="text-sm font-medium text-slate-200 hover:text-brand-orange transition-colors">Seguridad y Cobertura</a>
+                    <a href="#cotizar" class="bg-brand-orange hover:bg-brand-orangeHover text-white font-heading font-bold text-sm px-5 py-3 rounded-xl shadow-lg shadow-orange-500/25 transition-all hover:-translate-y-0.5 flex items-center">
+                        <span>Solicitar Cotización</span>
+                        <i class="fa-solid fa-arrow-right ml-2 text-xs"></i>
+                    </a>
+                </nav>
+
+                <!-- Mobile Hamburger Button -->
+                <button id="mobile-menu-btn" aria-label="Abrir menú" class="md:hidden text-slate-200 hover:text-white p-2.5 rounded-lg bg-navy-800 border border-slate-700 focus:outline-none">
+                    <i id="menu-icon" class="fa-solid fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Dropdown Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-navy-900 border-b border-slate-800 px-4 pt-2 pb-6 space-y-2">
+            <a href="#inicio" class="mobile-link block px-4 py-3 rounded-xl text-base font-medium text-slate-200 hover:bg-navy-800 hover:text-brand-orange">Inicio</a>
+            <a href="#servicios" class="mobile-link block px-4 py-3 rounded-xl text-base font-medium text-slate-200 hover:bg-navy-800 hover:text-brand-orange">Servicios Especializados</a>
+            <a href="#flota" class="mobile-link block px-4 py-3 rounded-xl text-base font-medium text-slate-200 hover:bg-navy-800 hover:text-brand-orange">Comparador de Flota</a>
+            <a href="#seguridad" class="mobile-link block px-4 py-3 rounded-xl text-base font-medium text-slate-200 hover:bg-navy-800 hover:text-brand-orange">Seguridad y Cobertura</a>
+            <div class="pt-2">
+                <a href="#cotizar" class="mobile-link block w-full text-center bg-brand-orange hover:bg-brand-orangeHover text-white font-heading font-bold py-3.5 rounded-xl shadow-lg">
+                    Cotizar Flete Ahora
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section id="inicio" class="hero-bg relative min-h-[88vh] flex items-center py-16 lg:py-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Left Column: Value Proposition -->
+                <div class="lg:col-span-7 text-white space-y-6">
+                    <div class="inline-flex items-center space-x-2 bg-navy-800/90 border border-slate-700 px-4 py-2 rounded-full">
+                        <span class="w-2.5 h-2.5 rounded-full bg-brand-orange"></span>
+                        <span class="text-xs sm:text-sm font-semibold tracking-wide uppercase text-slate-200">Logística Terrestre Dedicada y Spot • FTL</span>
+                    </div>
+
+                    <h1 class="font-heading font-black text-4xl sm:text-5xl lg:text-6xl leading-[1.1] tracking-tight">
+                        Potencia y Precisión en <span class="text-brand-orange">Plataforma</span> y <span class="text-brand-orange">Caja Seca</span>
+                    </h1>
+
+                    <p class="text-lg sm:text-xl text-slate-300 max-w-2xl leading-relaxed font-normal">
+                        Movemos su cadena de suministro a nivel nacional e internacional con puntualidad garantizada, operadores certificados y rastreo satelital en tiempo real para carga industrial y comercial.
+                    </p>
+
+                    <!-- Primary CTAs -->
+                    <div class="flex flex-col sm:flex-row gap-4 pt-2">
+                        <a href="#cotizar" class="bg-brand-orange hover:bg-brand-orangeHover text-white font-heading font-bold text-base px-8 py-4 rounded-xl shadow-xl shadow-orange-500/30 transition-all hover:-translate-y-0.5 text-center flex items-center justify-center">
+                            <i class="fa-solid fa-calculator mr-2.5"></i>
+                            Cotizar Flete Ahora
+                        </a>
+                        <a href="#flota" class="bg-navy-800/90 hover:bg-slate-700 text-white border border-slate-600 font-heading font-bold text-base px-8 py-4 rounded-xl transition-all text-center flex items-center justify-center">
+                            <i class="fa-solid fa-truck-moving mr-2.5 text-brand-orange"></i>
+                            Conocer Flota
+                        </a>
+                    </div>
+
+                    <!-- Floating Key Metrics Bar -->
+                    <div class="grid grid-cols-3 gap-4 pt-6 border-t border-slate-700/70">
+                        <div>
+                            <div class="font-heading font-black text-2xl sm:text-3xl text-white">99.4<span class="text-brand-orange">%</span></div>
+                            <div class="text-xs sm:text-sm text-slate-400 mt-0.5">Entregas a Tiempo</div>
+                        </div>
+                        <div>
+                            <div class="font-heading font-black text-2xl sm:text-3xl text-white">24<span class="text-brand-orange">/</span>7</div>
+                            <div class="text-xs sm:text-sm text-slate-400 mt-0.5">Monitoreo GPS Activo</div>
+                        </div>
+                        <div>
+                            <div class="font-heading font-black text-2xl sm:text-3xl text-white">30<span class="text-brand-orange">Ton</span></div>
+                            <div class="text-xs sm:text-sm text-slate-400 mt-0.5">Capacidad Máx. Carga</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column: Quick Pre-Quote Express Card -->
+                <div class="lg:col-span-5">
+                    <div class="bg-white rounded-2xl p-6 sm:p-8 shadow-2xl border border-slate-200">
+                        <div class="flex items-center justify-between mb-6">
+                            <div>
+                                <span class="text-xs font-bold uppercase tracking-wider text-brand-orange">Respuesta en &lt; 15 min</span>
+                                <h2 class="font-heading font-extrabold text-xl text-navy-900 mt-0.5">Pre-Cotización Express</h2>
+                            </div>
+                            <div class="w-10 h-10 rounded-xl bg-brand-orangeLight text-brand-orange flex items-center justify-center">
+                                <i class="fa-solid fa-bolt text-lg"></i>
+                            </div>
+                        </div>
+
+                        <form id="quick-quote-form" class="space-y-4">
+                            <div>
+                                <label class="block text-xs font-bold uppercase text-slate-600 mb-1.5">Tipo de Equipo Requerido</label>
+                                <div class="grid grid-cols-2 gap-3">
+                                    <label class="cursor-pointer">
+                                        <input type="radio" name="quickUnit" value="plataforma" class="peer sr-only" checked>
+                                        <div class="p-3 rounded-xl border-2 border-slate-200 peer-checked:border-brand-orange peer-checked:bg-brand-orangeLight text-center transition-all">
+                                            <i class="fa-solid fa-truck-flatbed text-navy-900 peer-checked:text-brand-orange text-lg block mb-1"></i>
+                                            <span class="text-xs font-bold text-navy-900">Plataforma</span>
+                                        </div>
+                                    </label>
+                                    <label class="cursor-pointer">
+                                        <input type="radio" name="quickUnit" value="caja_seca" class="peer sr-only">
+                                        <div class="p-3 rounded-xl border-2 border-slate-200 peer-checked:border-brand-orange peer-checked:bg-brand-orangeLight text-center transition-all">
+                                            <i class="fa-solid fa-trailer text-navy-900 peer-checked:text-brand-orange text-lg block mb-1"></i>
+                                            <span class="text-xs font-bold text-navy-900">Caja Seca</span>
+                                        </div>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                                <div>
+                                    <label for="quick-origin" class="block text-xs font-bold uppercase text-slate-600 mb-1">Ciudad Origen</label>
+                                    <input type="text" id="quick-origin" required placeholder="Ej. Monterrey, NL" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm focus:ring-2 focus:ring-brand-orange focus:border-brand-orange outline-none">
+                                </div>
+                                <div>
+                                    <label for="quick-dest" class="block text-xs font-bold uppercase text-slate-600 mb-1">Ciudad Destino</label>
+                                    <input type="text" id="quick-dest" required placeholder="Ej. Querétaro, QRO" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm focus:ring-2 focus:ring-brand-orange focus:border-brand-orange outline-none">
+                                </div>
+                            </div>
+
+                            <div>
+                                <label for="quick-weight" class="block text-xs font-bold uppercase text-slate-600 mb-1">Peso Aproximado (Toneladas)</label>
+                                <select id="quick-weight" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm bg-white focus:ring-2 focus:ring-brand-orange focus:border-brand-orange outline-none">
+                                    <option value="10">Hasta 10 Toneladas (Carga Ligera / Media)</option>
+                                    <option value="20" selected>11 a 22 Toneladas (Estándar Industrial)</option>
+                                    <option value="28">23 a 30 Toneladas (Carga Pesada / Full)</option>
+                                </select>
+                            </div>
+
+                            <button type="submit" class="w-full bg-navy-900 hover:bg-navy-800 text-white font-heading font-bold py-3.5 rounded-xl shadow-lg transition-all flex items-center justify-center group">
+                                <span>Transferir a Calculadora Detallada</span>
+                                <i class="fa-solid fa-arrow-down ml-2 text-brand-orange group-hover:translate-y-0.5 transition-transform"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- CORE SERVICES SECTION: FLATBED & DRY VAN -->
+    <section id="servicios" class="py-20 lg:py-28 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16 reveal">
+                <span class="text-brand-orange font-heading font-bold text-sm uppercase tracking-widest">Especialización Operativa</span>
+                <h2 class="font-heading font-black text-3xl sm:text-4xl text-navy-900 mt-2">Soluciones de Transporte de Carga Pesada</h2>
+                <p class="text-slate-600 mt-4 text-base sm:text-lg">
+                    Contamos con equipos modernos y mantenimiento preventivo riguroso para garantizar la integridad estructural y puntualidad de cada embarque.
+                </p>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-8 lg:gap-10">
+                
+                <!-- Card 1: Transporte en Plataforma (Flatbed) -->
+                <div class="reveal bg-slate-50 rounded-3xl overflow-hidden border border-slate-200 shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col group">
+                    <div class="relative h-64 sm:h-72 overflow-hidden bg-navy-900">
+                        <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1200&q=80" 
+                             onerror="this.src='https://placehold.co/800x450/0F172A/F97316?text=Transporte+en+Plataforma+Flatbed'"
+                             alt="Transporte en Plataforma Flatbed" 
+                             class="w-full h-full object-cover opacity-85 group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-navy-900 via-navy-900/40 to-transparent"></div>
+                        <div class="absolute top-4 left-4 bg-brand-orange text-white font-heading font-bold text-xs uppercase px-3.5 py-1.5 rounded-lg shadow">
+                            Carga Abierta y Sobredimensionada
+                        </div>
+                        <div class="absolute bottom-5 left-6 right-6">
+                            <h3 class="font-heading font-black text-2xl sm:text-3xl text-white">Transporte en Plataforma</h3>
+                            <p class="text-slate-300 text-sm font-medium">Flatbed Service • 40', 48' y 53' Pies</p>
+                        </div>
+                    </div>
+
+                    <div class="p-6 sm:p-8 flex-1 flex flex-col justify-between space-y-6">
+                        <div>
+                            <p class="text-slate-600 leading-relaxed mb-6">
+                                Diseñado para mercancías que requieren maniobras de carga y descarga lateral o superior mediante grúa puente o montacargas de alto tonelaje. Ideal para la industria siderúrgica, energética y de construcción.
+                            </p>
+
+                            <h4 class="font-heading font-bold text-xs uppercase tracking-wider text-navy-900 mb-3">Aplicaciones Ideales:</h4>
+                            <div class="grid grid-cols-2 gap-2.5 mb-6">
+                                <div class="flex items-center text-sm text-slate-700 bg-white p-2.5 rounded-xl border border-slate-200">
+                                    <i class="fa-solid fa-gears text-brand-orange mr-2.5"></i> Maquinaria Pesada
+                                </div>
+                                <div class="flex items-center text-sm text-slate-700 bg-white p-2.5 rounded-xl border border-slate-200">
+                                    <i class="fa-solid fa-layer-group text-brand-orange mr-2.5"></i> Acero, Rollos y Vigas
+                                </div>
+                                <div class="flex items-center text-sm text-slate-700 bg-white p-2.5 rounded-xl border border-slate-200">
+                                    <i class="fa-solid fa-trowel-bricks text-brand-orange mr-2.5"></i> Construcción y Tubería
+                                </div>
+                                <div class="flex items-center text-sm text-slate-700 bg-white p-2.5 rounded-xl border border-slate-200">
+                                    <i class="fa-solid fa-maximize text-brand-orange mr-2.5"></i> Exceso de Dimensiones
+                                </div>
+                            </div>
+
+                            <!-- Technical Specs Box -->
+                            <div class="bg-navy-900 text-white rounded-2xl p-5 space-y-3">
+                                <div class="text-xs font-bold uppercase tracking-wider text-brand-orange">Especificaciones Técnicas</div>
+                                <div class="grid grid-cols-3 gap-3 text-center divide-x divide-slate-700">
+                                    <div>
+                                        <span class="block text-xs text-slate-400">Largos</span>
+                                        <span class="font-heading font-bold text-sm sm:text-base">40', 48' y 53'</span>
+                                    </div>
+                                    <div>
+                                        <span class="block text-xs text-slate-400">Capacidad</span>
+                                        <span class="font-heading font-bold text-sm sm:text-base">Hasta 30 Ton</span>
+                                    </div>
+                                    <div>
+                                        <span class="block text-xs text-slate-400">Sujeción</span>
+                                        <span class="font-heading font-bold text-sm sm:text-base">Cadenas y Lonas</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <a href="#cotizar" onclick="selectUnitInCalculator('plataforma')" class="w-full py-3.5 px-6 rounded-xl bg-white hover:bg-brand-orange text-navy-900 hover:text-white border-2 border-navy-900 hover:border-brand-orange font-heading font-bold text-sm text-center transition-all flex items-center justify-center">
+                            <span>Cotizar Servicio en Plataforma</span>
+                            <i class="fa-solid fa-chevron-right ml-2 text-xs"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 2: Transporte en Caja Seca (Dry Van) -->
+                <div class="reveal bg-slate-50 rounded-3xl overflow-hidden border border-slate-200 shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col group">
+                    <div class="relative h-64 sm:h-72 overflow-hidden bg-navy-900">
+                        <img src="https://images.unsplash.com/photo-1519003722824-194d4455a60c?auto=format&fit=crop&w=1200&q=80" 
+                             onerror="this.src='https://placehold.co/800x450/0F172A/F97316?text=Transporte+en+Caja+Seca+Dry+Van'"
+                             alt="Transporte en Caja Seca Dry Van" 
+                             class="w-full h-full object-cover opacity-85 group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-navy-900 via-navy-900/40 to-transparent"></div>
+                        <div class="absolute top-4 left-4 bg-navy-800 border border-slate-600 text-white font-heading font-bold text-xs uppercase px-3.5 py-1.5 rounded-lg shadow">
+                            Protección Hermética y Seguridad
+                        </div>
+                        <div class="absolute bottom-5 left-6 right-6">
+                            <h3 class="font-heading font-black text-2xl sm:text-3xl text-white">Transporte en Caja Seca</h3>
+                            <p class="text-slate-300 text-sm font-medium">Dry Van Service • 48' y 53' Pies</p>
+                        </div>
+                    </div>
+
+                    <div class="p-6 sm:p-8 flex-1 flex flex-col justify-between space-y-6">
+                        <div>
+                            <p class="text-slate-600 leading-relaxed mb-6">
+                                Protección total contra factores climáticos, polvo y manipulación externa. Nuestras cajas secas cuentan con suspensión neumática para absorber vibraciones y sellos de alta seguridad para carga de alto valor.
+                            </p>
+
+                            <h4 class="font-heading font-bold text-xs uppercase tracking-wider text-navy-900 mb-3">Aplicaciones Ideales:</h4>
+                            <div class="grid grid-cols-2 gap-2.5 mb-6">
+                                <div class="flex items-center text-sm text-slate-700 bg-white p-2.5 rounded-xl border border-slate-200">
+                                    <i class="fa-solid fa-boxes-stacked text-brand-orange mr-2.5"></i> Mercancía Paletizada
+                                </div>
+                                <div class="flex items-center text-sm text-slate-700 bg-white p-2.5 rounded-xl border border-slate-200">
+                                    <i class="fa-solid fa-store text-brand-orange mr-2.5"></i> Retail y Consumo
+                                </div>
+                                <div class="flex items-center text-sm text-slate-700 bg-white p-2.5 rounded-xl border border-slate-200">
+                                    <i class="fa-solid fa-microchip text-brand-orange mr-2.5"></i> Electrónica y Autopartes
+                                </div>
+                                <div class="flex items-center text-sm text-slate-700 bg-white p-2.5 rounded-xl border border-slate-200">
+                                    <i class="fa-solid fa-industry text-brand-orange mr-2.5"></i> Manufactura General
+                                </div>
+                            </div>
+
+                            <!-- Technical Specs Box -->
+                            <div class="bg-navy-900 text-white rounded-2xl p-5 space-y-3">
+                                <div class="text-xs font-bold uppercase tracking-wider text-brand-orange">Especificaciones Técnicas</div>
+                                <div class="grid grid-cols-3 gap-3 text-center divide-x divide-slate-700">
+                                    <div>
+                                        <span class="block text-xs text-slate-400">Largos</span>
+                                        <span class="font-heading font-bold text-sm sm:text-base">48' y 53' Pies</span>
+                                    </div>
+                                    <div>
+                                        <span class="block text-xs text-slate-400">Suspensión</span>
+                                        <span class="font-heading font-bold text-sm sm:text-base">Neumática Air-Ride</span>
+                                    </div>
+                                    <div>
+                                        <span class="block text-xs text-slate-400">Seguridad</span>
+                                        <span class="font-heading font-bold text-sm sm:text-base">Sellos ISO + GPS</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <a href="#cotizar" onclick="selectUnitInCalculator('caja_seca')" class="w-full py-3.5 px-6 rounded-xl bg-white hover:bg-brand-orange text-navy-900 hover:text-white border-2 border-navy-900 hover:border-brand-orange font-heading font-bold text-sm text-center transition-all flex items-center justify-center">
+                            <span>Cotizar Servicio en Caja Seca</span>
+                            <i class="fa-solid fa-chevron-right ml-2 text-xs"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- INTERACTIVE FLEET COMPARISON & SPECS SECTION -->
+    <section id="flota" class="py-20 bg-navy-900 text-white industrial-pattern">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6 reveal">
+                <div>
+                    <span class="text-brand-orange font-heading font-bold text-sm uppercase tracking-widest">Ingeniería de Transporte</span>
+                    <h2 class="font-heading font-black text-3xl sm:text-4xl mt-2">Comparador Técnico de Unidades</h2>
+                    <p class="text-slate-300 mt-3 max-w-2xl">
+                        Seleccione el tipo de remolque para visualizar dimensiones exactas, capacidades de carga, métodos de estiba y recomendaciones operativas.
+                    </p>
+                </div>
+
+                <!-- Interactive Toggle Switch -->
+                <div class="bg-navy-950 p-1.5 rounded-2xl border border-slate-700 inline-flex self-start md:self-auto">
+                    <button id="tab-flatbed" onclick="switchFleetTab('flatbed')" class="px-5 py-3 rounded-xl font-heading font-bold text-sm transition-all bg-brand-orange text-white shadow-lg flex items-center">
+                        <i class="fa-solid fa-truck-flatbed mr-2"></i> Plataforma (Flatbed)
+                    </button>
+                    <button id="tab-dryvan" onclick="switchFleetTab('dryvan')" class="px-5 py-3 rounded-xl font-heading font-bold text-sm transition-all text-slate-300 hover:text-white flex items-center">
+                        <i class="fa-solid fa-trailer mr-2"></i> Caja Seca (Dry Van)
+                    </button>
+                </div>
+            </div>
+
+            <!-- Interactive Comparison Panel -->
+            <div id="fleet-display-card" class="bg-navy-800/95 backdrop-blur border border-slate-700 rounded-3xl p-6 sm:p-10 shadow-2xl transition-all duration-300">
+                <!-- Content populated dynamically via JS for crisp comparison -->
+            </div>
+        </div>
+    </section>
+
+    <!-- DIFFERENTIATORS & SAFETY SECTION -->
+    <section id="seguridad" class="py-20 lg:py-28 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16 reveal">
+                <span class="text-brand-orange font-heading font-bold text-sm uppercase tracking-widest">Cero Tolerancia al Riesgo</span>
+                <h2 class="font-heading font-black text-3xl sm:text-4xl text-navy-900 mt-2">Blindaje Operativo y Seguridad Integral</h2>
+                <p class="text-slate-600 mt-4 text-base sm:text-lg">
+                    Protegemos su inversión desde la recolección hasta la entrega final con protocolos certificados y tecnología de telemetría avanzada.
+                </p>
+            </div>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+                <!-- Feature 1 -->
+                <div class="reveal bg-white p-7 rounded-2xl border border-slate-200 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all">
+                    <div class="w-14 h-14 rounded-2xl bg-brand-orangeLight text-brand-orange flex items-center justify-center text-2xl mb-5">
+                        <i class="fa-solid fa-satellite-dish"></i>
+                    </div>
+                    <h3 class="font-heading font-bold text-xl text-navy-900 mb-2">Rastreo Satelital GPS 24/7</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        Monitoreo activo desde nuestra Torre de Control con enlaces espejo para clientes, geocercas inteligentes y botón de pánico conectado a autoridades.
+                    </p>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="reveal bg-white p-7 rounded-2xl border border-slate-200 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all">
+                    <div class="w-14 h-14 rounded-2xl bg-brand-orangeLight text-brand-orange flex items-center justify-center text-2xl mb-5">
+                        <i class="fa-solid fa-id-card-clip"></i>
+                    </div>
+                    <h3 class="font-heading font-bold text-xl text-navy-900 mb-2">Operadores Certificados</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        Conductores con licencia federal vigente, exámenes toxicológicos periódicos, capacitación en manejo defensivo y sujeción profesional de carga.
+                    </p>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="reveal bg-white p-7 rounded-2xl border border-slate-200 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all">
+                    <div class="w-14 h-14 rounded-2xl bg-brand-orangeLight text-brand-orange flex items-center justify-center text-2xl mb-5">
+                        <i class="fa-solid fa-file-shield"></i>
+                    </div>
+                    <h3 class="font-heading font-bold text-xl text-navy-900 mb-2">Seguro de Carga Incluido</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        Póliza amplia de responsabilidad civil y cobertura contra robo o daños en tránsito, con opción de ampliación para mercancías de alto valor.
+                    </p>
+                </div>
+
+                <!-- Feature 4 -->
+                <div class="reveal bg-white p-7 rounded-2xl border border-slate-200 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all">
+                    <div class="w-14 h-14 rounded-2xl bg-brand-orangeLight text-brand-orange flex items-center justify-center text-2xl mb-5">
+                        <i class="fa-solid fa-wrench"></i>
+                    </div>
+                    <h3 class="font-heading font-bold text-xl text-navy-900 mb-2">Mantenimiento Preventivo</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        Flota con antigüedad promedio menor a 4 años, inspecciones físico-mecánicas de 45 puntos antes de cada viaje para evitar retrasos en carretera.
+                    </p>
+                </div>
+
+                <!-- Feature 5 -->
+                <div class="reveal bg-white p-7 rounded-2xl border border-slate-200 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all">
+                    <div class="w-14 h-14 rounded-2xl bg-brand-orangeLight text-brand-orange flex items-center justify-center text-2xl mb-5">
+                        <i class="fa-solid fa-map-location-dot"></i>
+                    </div>
+                    <h3 class="font-heading font-bold text-xl text-navy-900 mb-2">Cobertura Nacional y Cruce</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        Rutas troncales en todo el territorio nacional (Bajío, Norte, Centro, Pacífico y Sureste) así como servicio puerta a puerta en frontera Norte.
+                    </p>
+                </div>
+
+                <!-- Feature 6 -->
+                <div class="reveal bg-white p-7 rounded-2xl border border-slate-200 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all">
+                    <div class="w-14 h-14 rounded-2xl bg-brand-orangeLight text-brand-orange flex items-center justify-center text-2xl mb-5">
+                        <i class="fa-solid fa-headset"></i>
+                    </div>
+                    <h3 class="font-heading font-bold text-xl text-navy-900 mb-2">Ejecutivo Dedicado 24/7</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        Un solo punto de contacto directo sin bots ni esperas, reportes automatizados de estatus cada 4 horas y evidencia digital POD al descargar.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- INTERACTIVE FREIGHT QUOTE CALCULATOR & FORM -->
+    <section id="cotizar" class="py-20 lg:py-28 bg-white border-t border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-12 gap-10 lg:gap-12 items-start">
+                
+                <!-- Left Column: Live Estimator Summary & Coverage Info -->
+                <div class="lg:col-span-5 space-y-6 reveal">
+                    <div>
+                        <span class="text-brand-orange font-heading font-bold text-sm uppercase tracking-widest">Tarificador Inteligente</span>
+                        <h2 class="font-heading font-black text-3xl sm:text-4xl text-navy-900 mt-2">Cotice su Flete en Segundos</h2>
+                        <p class="text-slate-600 mt-3 leading-relaxed">
+                            Configure las características de su carga para obtener una estimación referencial inmediata y recibir una propuesta formal garantizada por nuestro equipo comercial.
+                        </p>
+                    </div>
+
+                    <!-- Dynamic Estimate Display Box -->
+                    <div class="bg-navy-900 text-white rounded-3xl p-6 sm:p-8 shadow-xl border border-slate-800 relative overflow-hidden">
+                        <div class="absolute -right-8 -top-8 w-32 h-32 bg-brand-orange/10 rounded-full blur-2xl"></div>
+                        
+                        <div class="flex items-center justify-between border-b border-slate-800 pb-4 mb-5">
+                            <span class="text-xs font-bold uppercase tracking-wider text-slate-400">Estimación Referencial</span>
+                            <span id="est-badge" class="bg-brand-orange/20 text-brand-orange text-xs font-bold px-3 py-1 rounded-full">Plataforma 48'/53'</span>
+                        </div>
+
+                        <div class="mb-6">
+                            <div class="text-xs text-slate-400 mb-1">Rango Tarifario Estimado (MXN + IVA)</div>
+                            <div id="est-price-range" class="font-heading font-black text-3xl sm:text-4xl text-white">
+                                $24,500 – $29,800
+                            </div>
+                            <p class="text-xs text-slate-400 mt-2">
+                                *Tarifa referencial calculada según distancia estimada (<span id="est-km-label" class="text-white font-semibold">650 km</span>), tipo de unidad y tonelaje.
+                            </p>
+                        </div>
+
+                        <div class="space-y-2.5 text-sm border-t border-slate-800 pt-4">
+                            <div class="flex justify-between">
+                                <span class="text-slate-400">Unidad Seleccionada:</span>
+                                <span id="summary-unit" class="font-semibold text-white">Plataforma (Flatbed)</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-slate-400">Peso de Carga:</span>
+                                <span id="summary-weight" class="font-semibold text-white">18 Toneladas</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-slate-400">Incluye:</span>
+                                <span class="font-semibold text-emerald-400">GPS 24/7 + Seguro Básico</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Direct Dispatch Box -->
+                    <div class="bg-slate-50 border border-slate-200 rounded-2xl p-5 flex items-center space-x-4">
+                        <div class="w-12 h-12 rounded-xl bg-navy-900 text-brand-orange flex items-center justify-center shrink-0 text-xl">
+                            <i class="fa-solid fa-clock"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-heading font-bold text-sm text-navy-900">¿Requiere unidad urgente hoy mismo?</h4>
+                            <p class="text-xs text-slate-600 mt-0.5">Contamos con disponibilidad Spot en Monterrey, CDMX, Querétaro, Guadalajara y Nuevo Laredo.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column: Full Quote Form -->
+                <div class="lg:col-span-7 reveal">
+                    <div class="bg-slate-50 rounded-3xl p-6 sm:p-10 border border-slate-200 shadow-lg">
+                        <form id="full-quote-form" class="space-y-6" novalidate>
+                            
+                            <!-- Step 1: Unit Type -->
+                            <div>
+                                <label class="block font-heading font-bold text-sm text-navy-900 mb-3">1. Seleccione el Tipo de Unidad</label>
+                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                    <label class="cursor-pointer">
+                                        <input type="radio" name="unitType" value="plataforma" class="peer sr-only" checked onchange="updateCalculator()">
+                                        <div class="p-4 rounded-2xl bg-white border-2 border-slate-200 peer-checked:border-brand-orange peer-checked:bg-brand-orangeLight/60 transition-all flex items-center space-x-4">
+                                            <div class="w-12 h-12 rounded-xl bg-navy-900 text-brand-orange flex items-center justify-center text-xl shrink-0">
+                                                <i class="fa-solid fa-truck-flatbed"></i>
+                                            </div>
+                                            <div>
+                                                <div class="font-heading font-bold text-navy-900 text-sm">Plataforma (Flatbed)</div>
+                                                <div class="text-xs text-slate-500">40', 48', 53' • Hasta 30 Ton</div>
+                                            </div>
+                                        </div>
+                                    </label>
+
+                                    <label class="cursor-pointer">
+                                        <input type="radio" name="unitType" value="caja_seca" class="peer sr-only" onchange="updateCalculator()">
+                                        <div class="p-4 rounded-2xl bg-white border-2 border-slate-200 peer-checked:border-brand-orange peer-checked:bg-brand-orangeLight/60 transition-all flex items-center space-x-4">
+                                            <div class="w-12 h-12 rounded-xl bg-navy-900 text-brand-orange flex items-center justify-center text-xl shrink-0">
+                                                <i class="fa-solid fa-trailer"></i>
+                                            </div>
+                                            <div>
+                                                <div class="font-heading font-bold text-navy-900 text-sm">Caja Seca (Dry Van)</div>
+                                                <div class="text-xs text-slate-500">48' y 53' • Cerrada y Sellada</div>
+                                            </div>
+                                        </div>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!-- Step 2: Route & Distance -->
+                            <div class="grid sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label for="calc-origin" class="block text-xs font-bold uppercase text-slate-700 mb-1.5">Origen (Ciudad / Estado) *</label>
+                                    <input type="text" id="calc-origin" required placeholder="Ej. Apodaca, Nuevo León" oninput="updateCalculator()"
+                                           class="w-full px-4 py-3 rounded-xl bg-white border border-slate-300 text-sm focus:ring-2 focus:ring-brand-orange focus:border-brand-orange outline-none">
+                                    <p id="err-origin" class="hidden text-xs text-red-600 mt-1">Por favor ingrese la ciudad de origen.</p>
+                                </div>
+                                <div>
+                                    <label for="calc-dest" class="block text-xs font-bold uppercase text-slate-700 mb-1.5">Destino (Ciudad / Estado) *</label>
+                                    <input type="text" id="calc-dest" required placeholder="Ej. Silao, Guanajuato" oninput="updateCalculator()"
+                                           class="w-full px-4 py-3 rounded-xl bg-white border border-slate-300 text-sm focus:ring-2 focus:ring-brand-orange focus:border-brand-orange outline-none">
+                                    <p id="err-dest" class="hidden text-xs text-red-600 mt-1">Por favor ingrese la ciudad de destino.</p>
+                                </div>
+                            </div>
+
+                            <!-- Distance & Weight Sliders -->
+                            <div class="grid sm:grid-cols-2 gap-6 bg-white p-5 rounded-2xl border border-slate-200">
+                                <div>
+                                    <div class="flex justify-between items-center mb-2">
+                                        <label for="calc-distance" class="text-xs font-bold uppercase text-slate-700">Distancia Estimada</label>
+                                        <span id="distance-val" class="text-sm font-heading font-extrabold text-brand-orange">650 km</span>
+                                    </div>
+                                    <input type="range" id="calc-distance" min="100" max="2500" step="50" value="650" oninput="updateCalculator()"
+                                           class="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer">
+                                    <div class="flex justify-between text-[11px] text-slate-400 mt-1">
+                                        <span>100 km (Local)</span>
+                                        <span>2,500 km (Larga)</span>
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <div class="flex justify-between items-center mb-2">
+                                        <label for="calc-weight" class="text-xs font-bold uppercase text-slate-700">Peso Aproximado</label>
+                                        <span id="weight-val" class="text-sm font-heading font-extrabold text-brand-orange">18 Ton</span>
+                                    </div>
+                                    <input type="range" id="calc-weight" min="1" max="30" step="1" value="18" oninput="updateCalculator()"
+                                           class="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer">
+                                    <div class="flex justify-between text-[11px] text-slate-400 mt-1">
+                                        <span>1 Ton</span>
+                                        <span>30 Ton Máx.</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Step 3: Cargo Details -->
+                            <div class="grid sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label for="calc-cargo" class="block text-xs font-bold uppercase text-slate-700 mb-1.5">Tipo de Mercancía *</label>
+                                    <input type="text" id="calc-cargo" required placeholder="Ej. Rollos de acero / Pallets electrónicos"
+                                           class="w-full px-4 py-3 rounded-xl bg-white border border-slate-300 text-sm focus:ring-2 focus:ring-brand-orange focus:border-brand-orange outline-none">
+                                    <p id="err-cargo" class="hidden text-xs text-red-600 mt-1">Indique el tipo de mercancía.</p>
+                                </div>
+                                <div>
+                                    <label for="calc-extras" class="block text-xs font-bold uppercase text-slate-700 mb-1.5">Requerimiento Especial</label>
+                                    <select id="calc-extras" onchange="updateCalculator()" class="w-full px-4 py-3 rounded-xl bg-white border border-slate-300 text-sm focus:ring-2 focus:ring-brand-orange focus:border-brand-orange outline-none">
+                                        <option value="none">Estándar (Sujeción / Sellos incluidos)</option>
+                                        <option value="tarp">Enlonado completo (Plataforma)</option>
+                                        <option value="oversize">Permiso exceso de dimensiones</option>
+                                        <option value="custody">Custodia armada / doble operador</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <!-- Step 4: Contact Info -->
+                            <div class="pt-2 border-t border-slate-200">
+                                <label class="block font-heading font-bold text-sm text-navy-900 mb-3">2. Datos de Contacto para Envío de Tarifa Oficial</label>
+                                <div class="grid sm:grid-cols-3 gap-4">
+                                    <div>
+                                        <label for="calc-name" class="block text-xs font-bold uppercase text-slate-700 mb-1">Nombre / Empresa *</label>
+                                        <input type="text" id="calc-name" required placeholder="Ing. Carlos Ruiz"
+                                               class="w-full px-3.5 py-2.5 rounded-xl bg-white border border-slate-300 text-sm focus:ring-2 focus:ring-brand-orange outline-none">
+                                        <p id="err-name" class="hidden text-xs text-red-600 mt-1">Nombre requerido.</p>
+                                    </div>
+                                    <div>
+                                        <label for="calc-email" class="block text-xs font-bold uppercase text-slate-700 mb-1">Correo Corporativo *</label>
+                                        <input type="email" id="calc-email" required placeholder="cruiz@empresa.com"
+                                               class="w-full px-3.5 py-2.5 rounded-xl bg-white border border-slate-300 text-sm focus:ring-2 focus:ring-brand-orange outline-none">
+                                        <p id="err-email" class="hidden text-xs text-red-600 mt-1">Correo válido requerido.</p>
+                                    </div>
+                                    <div>
+                                        <label for="calc-phone" class="block text-xs font-bold uppercase text-slate-700 mb-1">Teléfono / WhatsApp *</label>
+                                        <input type="tel" id="calc-phone" required placeholder="81 1234 5678"
+                                               class="w-full px-3.5 py-2.5 rounded-xl bg-white border border-slate-300 text-sm focus:ring-2 focus:ring-brand-orange outline-none">
+                                        <p id="err-phone" class="hidden text-xs text-red-600 mt-1">Teléfono requerido.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <button type="submit" class="w-full bg-brand-orange hover:bg-brand-orangeHover text-white font-heading font-bold text-base py-4 rounded-xl shadow-xl shadow-orange-500/25 transition-all hover:-translate-y-0.5 flex items-center justify-center">
+                                <i class="fa-solid fa-paper-plane mr-2.5"></i>
+                                Solicitar Cotización Formal Ahora
+                            </button>
+                        </form>
+
+                        <!-- Visual Confirmation State (Hidden by default) -->
+                        <div id="quote-confirmation" class="hidden text-center py-8 space-y-5">
+                            <div class="w-20 h-20 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center text-4xl mx-auto shadow-inner">
+                                <i class="fa-solid fa-circle-check"></i>
+                            </div>
+                            <div>
+                                <span class="text-xs font-bold uppercase tracking-widest text-brand-orange">Folio de Atención: #VF-84920</span>
+                                <h3 class="font-heading font-black text-2xl sm:text-3xl text-navy-900 mt-1">¡Solicitud Recibida con Éxito!</h3>
+                                <p class="text-slate-600 max-w-md mx-auto mt-2 text-sm leading-relaxed">
+                                    Un ejecutivo de tráfico asignado ya está validando disponibilidad de unidades para su ruta. Recibirá su cotización formal en menos de <strong>15 minutos</strong>.
+                                </p>
+                            </div>
+                            <div id="confirmation-summary-box" class="bg-white border border-slate-200 rounded-2xl p-4 max-w-md mx-auto text-left text-xs space-y-1.5 text-slate-700">
+                                <!-- Filled dynamically -->
+                            </div>
+                            <button onclick="resetQuoteForm()" class="px-6 py-3 rounded-xl bg-navy-900 hover:bg-navy-800 text-white font-heading font-bold text-sm transition-colors">
+                                Realizar Otra Cotización
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-navy-950 text-slate-300 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+                
+                <!-- Brand & Mission -->
+                <div class="space-y-4">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-10 h-10 bg-brand-orange rounded-xl flex items-center justify-center">
+                            <i class="fa-solid fa-truck-fast text-white text-lg"></i>
+                        </div>
+                        <div>
+                            <span class="font-heading font-black text-lg text-white block leading-none">VANGUARDIA</span>
+                            <span class="font-heading font-bold text-[10px] tracking-[0.25em] text-brand-orange block mt-0.5">FREIGHT LOGISTICS</span>
+                        </div>
+                    </div>
+                    <p class="text-sm text-slate-400 leading-relaxed">
+                        Socio estratégico en transporte terrestre de carga completa (FTL) en modalidad de Plataforma y Caja Seca. Seguridad, puntualidad y control total en cada kilómetro.
+                    </p>
+                    <div class="flex space-x-3 pt-2">
+                        <a href="#inicio" aria-label="LinkedIn" class="w-9 h-9 rounded-lg bg-navy-900 hover:bg-brand-orange text-slate-300 hover:text-white flex items-center justify-center transition-colors border border-slate-800">
+                            <i class="fa-brands fa-linkedin-in"></i>
+                        </a>
+                        <a href="#inicio" aria-label="WhatsApp" class="w-9 h-9 rounded-lg bg-navy-900 hover:bg-brand-orange text-slate-300 hover:text-white flex items-center justify-center transition-colors border border-slate-800">
+                            <i class="fa-brands fa-whatsapp"></i>
+                        </a>
+                        <a href="#inicio" aria-label="Facebook" class="w-9 h-9 rounded-lg bg-navy-900 hover:bg-brand-orange text-slate-300 hover:text-white flex items-center justify-center transition-colors border border-slate-800">
+                            <i class="fa-brands fa-facebook-f"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="font-heading font-bold text-white text-sm uppercase tracking-wider mb-4">Navegación Rápida</h4>
+                    <ul class="space-y-2.5 text-sm">
+                        <li><a href="#inicio" class="hover:text-brand-orange transition-colors">Inicio</a></li>
+                        <li><a href="#servicios" class="hover:text-brand-orange transition-colors">Transporte en Plataforma (Flatbed)</a></li>
+                        <li><a href="#servicios" class="hover:text-brand-orange transition-colors">Transporte en Caja Seca (Dry Van)</a></li>
+                        <li><a href="#flota" class="hover:text-brand-orange transition-colors">Especificaciones de Flota</a></li>
+                        <li><a href="#seguridad" class="hover:text-brand-orange transition-colors">Protocolos GPS y Seguridad</a></li>
+                        <li><a href="#cotizar" class="hover:text-brand-orange transition-colors">Calculadora de Fletes</a></li>
+                    </ul>
+                </div>
+
+                <!-- Operating Bases -->
+                <div>
+                    <h4 class="font-heading font-bold text-white text-sm uppercase tracking-wider mb-4">Patios y Bases Operativas</h4>
+                    <ul class="space-y-3 text-sm text-slate-400">
+                        <li class="flex items-start">
+                            <i class="fa-solid fa-location-dot text-brand-orange mt-1 mr-2.5"></i>
+                            <span><strong class="text-white block">Base Norte (Matriz):</strong> Blvd. Aeropuerto 420, Parque Industrial Apodaca, N.L.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa-solid fa-location-dot text-brand-orange mt-1 mr-2.5"></i>
+                            <span><strong class="text-white block">Base Bajío:</strong> Carretera Federal 57 Km 198, El Marqués, Querétaro.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa-solid fa-location-dot text-brand-orange mt-1 mr-2.5"></i>
+                            <span><strong class="text-white block">Patio Frontera:</strong> Blvd. Luis Donaldo Colosio, Nuevo Laredo, Tamps.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- 24/7 Emergency & Contact -->
+                <div>
+                    <h4 class="font-heading font-bold text-white text-sm uppercase tracking-wider mb-4">Contacto y Emergencias 24/7</h4>
+                    <div class="bg-navy-900 border border-slate-800 rounded-2xl p-4 space-y-3">
+                        <div>
+                            <span class="text-[11px] uppercase font-bold text-brand-orange block">Torre de Control y Emergencias</span>
+                            <a href="tel:+528008904500" class="font-heading font-extrabold text-lg text-white hover:text-brand-orange transition-colors">
+                                800-890-4500
+                            </a>
+                        </div>
+                        <div class="text-xs text-slate-400 space-y-1.5 pt-2 border-t border-slate-800">
+                            <p><i class="fa-solid fa-envelope text-brand-orange mr-2"></i>trafico@vanguardiafreight.com</p>
+                            <p><i class="fa-solid fa-file-invoice-dollar text-brand-orange mr-2"></i>cotizaciones@vanguardiafreight.com</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Bottom Legal Bar -->
+            <div class="mt-12 pt-8 border-t border-slate-800/80 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-slate-500">
+                <p>&copy; 2026 VANGUARDIA FREIGHT LOGISTICS S.A. de C.V. Todos los derechos reservados.</p>
+                <div class="flex space-x-6">
+                    <button onclick="togglePrivacyModal(true)" class="hover:text-slate-300 transition-colors">Aviso de Privacidad</button>
+                    <button onclick="togglePrivacyModal(true)" class="hover:text-slate-300 transition-colors">Términos de Servicio y Carta Porte</button>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Privacy Policy Modal (Custom UI instead of alert) -->
+    <div id="privacy-modal" class="fixed inset-0 z-50 hidden bg-navy-950/80 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-lg w-full p-6 sm:p-8 shadow-2xl border border-slate-200">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="font-heading font-bold text-xl text-navy-900">Aviso de Privacidad y Carta Porte</h3>
+                <button onclick="togglePrivacyModal(false)" class="w-8 h-8 rounded-lg bg-slate-100 hover:bg-slate-200 flex items-center justify-center text-slate-600">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            <p class="text-sm text-slate-600 leading-relaxed mb-4">
+                VANGUARDIA FREIGHT LOGISTICS protege sus datos corporativos y operativos conforme a la Ley Federal de Protección de Datos Personales. La información recabada en nuestros formularios se emplea exclusivamente para cotización de fletes, emisión de Complemento Carta Porte 3.1 y seguimiento logístico.
+            </p>
+            <button onclick="togglePrivacyModal(false)" class="w-full py-3 rounded-xl bg-navy-900 text-white font-heading font-bold text-sm hover:bg-navy-800 transition-colors">
+                Entendido
+            </button>
+        </div>
+    </div>
+
+    <!-- JavaScript Logic for Interactivity, Tabs, Calculator & Animations -->
+    <script>
+        // 1. Mobile Hamburger Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = document.getElementById('menu-icon');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            const isHidden = mobileMenu.classList.contains('hidden');
+            if (isHidden) {
+                mobileMenu.classList.remove('hidden');
+                menuIcon.classList.remove('fa-bars');
+                menuIcon.classList.add('fa-xmark');
+            } else {
+                mobileMenu.classList.add('hidden');
+                menuIcon.classList.remove('fa-xmark');
+                menuIcon.classList.add('fa-bars');
+            }
+        });
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.mobile-link').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                menuIcon.classList.remove('fa-xmark');
+                menuIcon.classList.add('fa-bars');
+            });
+        });
+
+        // 2. Fleet Comparison Data & Tab Switcher
+        const fleetSpecs = {
+            flatbed: {
+                title: "Plataforma Industrial (Flatbed 40', 48' y 53')",
+                subtitle: "Máxima versatilidad para carga pesada, sobredimensionada y maniobras con grúa.",
+                badge: "Capacidad hasta 30 Toneladas",
+                dimensions: [
+                    { label: "Largo Disponible", value: "12.2 m (40') / 14.6 m (48') / 16.1 m (53')" },
+                    { label: "Ancho Útil", value: "2.55 m a 2.60 m (102 pulgadas)" },
+                    { label: "Altura de Plataforma", value: "1.45 m desde nivel de piso" },
+                    { label: "Capacidad de Carga", value: "25 a 30 Toneladas (según configuración)" }
+                ],
+                equipment: [
+                    "Bandas de sujeción de alta resistencia (4 pulgadas) y matraca",
+                    "Cadenas grado 70 y tensores certificados para acero y maquinaria",
+                    "Lonas impermeables de uso rudo (uso parcial o encarpado total)",
+                    "Estacas laterales desmontables, esquineros protectores y calzas"
+                ],
+                idealFor: "Vigas de acero, rollos de lámina, transformadores, maquinaria amarilla, tubería industrial, estructuras metálicas y bloques de construcción."
+            },
+            dryvan: {
+                title: "Caja Seca Hermética (Dry Van 48' y 53')",
+                subtitle: "Protección climática total y máxima seguridad para mercancía paletizada y de alto valor.",
+                badge: "Capacidad Volumétrica hasta 110 m³",
+                dimensions: [
+                    { label: "Largo Interior", value: "14.5 m (48') / 16.0 m (53') libres" },
+                    { label: "Ancho Interior", value: "2.50 m (98.5 pulgadas libres)" },
+                    { label: "Altura Interior", value: "2.70 m a 2.79 m (Puerta Roll-up o Abatible)" },
+                    { label: "Capacidad de Tarimas", value: "24 a 26 Pallets Estándar (48x40 pulg)" }
+                ],
+                equipment: [
+                    "Suspensión neumática (Air-Ride) para protección de carga frágil",
+                    "Piso de madera dura laminada reforzada para entrada de montacargas",
+                    "Rieles logísticos internos E-Track y barras estabilizadoras de carga",
+                    "Sellos de alta seguridad ISO 17712 y sensor de apertura de puertas GPS"
+                ],
+                idealFor: "Retail, productos de consumo masivo, línea blanca, electrónica, autopartes, papel, alimentos no perecederos y carga paletizada."
+            }
+        };
+
+        function switchFleetTab(type) {
+            const tabFlatbed = document.getElementById('tab-flatbed');
+            const tabDryvan = document.getElementById('tab-dryvan');
+            const container = document.getElementById('fleet-display-card');
+
+            if (type === 'flatbed') {
+                tabFlatbed.className = "px-5 py-3 rounded-xl font-heading font-bold text-sm transition-all bg-brand-orange text-white shadow-lg flex items-center";
+                tabDryvan.className = "px-5 py-3 rounded-xl font-heading font-bold text-sm transition-all text-slate-300 hover:text-white flex items-center";
+            } else {
+                tabDryvan.className = "px-5 py-3 rounded-xl font-heading font-bold text-sm transition-all bg-brand-orange text-white shadow-lg flex items-center";
+                tabFlatbed.className = "px-5 py-3 rounded-xl font-heading font-bold text-sm transition-all text-slate-300 hover:text-white flex items-center";
+            }
+
+            const data = fleetSpecs[type];
+            container.innerHTML = `
+                <div class="grid lg:grid-cols-12 gap-8 items-center">
+                    <div class="lg:col-span-7 space-y-6">
+                        <div class="inline-block bg-brand-orange/20 border border-brand-orange/40 text-brand-orange font-heading font-bold text-xs uppercase px-3.5 py-1.5 rounded-lg">
+                            ${data.badge}
+                        </div>
+                        <div>
+                            <h3 class="font-heading font-black text-2xl sm:text-3xl text-white">${data.title}</h3>
+                            <p class="text-slate-300 mt-2 text-sm sm:text-base">${data.subtitle}</p>
+                        </div>
+
+                        <div class="grid sm:grid-cols-2 gap-3">
+                            ${data.dimensions.map(dim => `
+                                <div class="bg-navy-900/90 border border-slate-700/80 p-4 rounded-2xl">
+                                    <span class="block text-xs text-slate-400 uppercase font-semibold">${dim.label}</span>
+                                    <span class="font-heading font-bold text-white text-sm sm:text-base mt-1 block">${dim.value}</span>
+                                </div>
+                            `).join('')}
+                        </div>
+
+                        <div class="bg-navy-950/70 border border-slate-800 rounded-2xl p-4">
+                            <span class="text-xs font-bold uppercase text-brand-orange block mb-1">Carga Recomendada:</span>
+                            <p class="text-sm text-slate-300">${data.idealFor}</p>
+                        </div>
+                    </div>
+
+                    <div class="lg:col-span-5 bg-navy-900 border border-slate-700 rounded-2xl p-6 space-y-5">
+                        <h4 class="font-heading font-bold text-base text-white flex items-center">
+                            <i class="fa-solid fa-clipboard-check text-brand-orange mr-2.5"></i>
+                            Equipamiento Incluido en Unidad
+                        </h4>
+                        <ul class="space-y-3">
+                            ${data.equipment.map(item => `
+                                <li class="flex items-start text-sm text-slate-300">
+                                    <i class="fa-solid fa-check text-emerald-400 mt-1 mr-3 shrink-0"></i>
+                                    <span>${item}</span>
+                                </li>
+                            `).join('')}
+                        </ul>
+                        <div class="pt-3 border-t border-slate-800">
+                            <a href="#cotizar" onclick="selectUnitInCalculator('${type === 'flatbed' ? 'plataforma' : 'caja_seca'}')" 
+                               class="w-full py-3.5 px-5 rounded-xl bg-brand-orange hover:bg-brand-orangeHover text-white font-heading font-bold text-sm text-center block transition-all shadow-lg">
+                                Solicitar Disponibilidad de esta Unidad
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Initialize default fleet tab
+        switchFleetTab('flatbed');
+
+        // 3. Quick Hero Form Transfer to Detailed Calculator
+        document.getElementById('quick-quote-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const unit = document.querySelector('input[name="quickUnit"]:checked').value;
+            const origin = document.getElementById('quick-origin').value;
+            const dest = document.getElementById('quick-dest').value;
+            const weight = document.getElementById('quick-weight').value;
+
+            selectUnitInCalculator(unit);
+            document.getElementById('calc-origin').value = origin;
+            document.getElementById('calc-dest').value = dest;
+            document.getElementById('calc-weight').value = weight;
+            
+            updateCalculator();
+            document.getElementById('cotizar').scrollIntoView({ behavior: 'smooth' });
+        });
+
+        function selectUnitInCalculator(unitValue) {
+            const radio = document.querySelector(`input[name="unitType"][value="${unitValue}"]`);
+            if (radio) {
+                radio.checked = true;
+                updateCalculator();
+            }
+        }
+
+        // 4. Real-Time Freight Calculator Logic
+        function updateCalculator() {
+            const unitEl = document.querySelector('input[name="unitType"]:checked');
+            const unit = unitEl ? unitEl.value : 'plataforma';
+            const distance = parseInt(document.getElementById('calc-distance').value, 10);
+            const weight = parseInt(document.getElementById('calc-weight').value, 10);
+            const extras = document.getElementById('calc-extras').value;
+
+            // Update UI labels
+            document.getElementById('distance-val').textContent = `${distance.toLocaleString()} km`;
+            document.getElementById('weight-val').textContent = `${weight} Ton`;
+            document.getElementById('est-km-label').textContent = `${distance.toLocaleString()} km`;
+            document.getElementById('summary-weight').textContent = `${weight} Toneladas`;
+
+            if (unit === 'plataforma') {
+                document.getElementById('est-badge').textContent = "Plataforma 48'/53'";
+                document.getElementById('summary-unit').textContent = "Plataforma (Flatbed)";
+            } else {
+                document.getElementById('est-badge').textContent = "Caja Seca 48'/53'";
+                document.getElementById('summary-unit').textContent = "Caja Seca (Dry Van)";
+            }
+
+            // Referential Pricing Algorithm (MXN)
+            const baseFlagDrop = unit === 'plataforma' ? 6800 : 6200;
+            const ratePerKm = unit === 'plataforma' ? 27.5 : 25.0;
+            const weightSurcharge = weight > 20 ? (weight - 20) * 320 : 0;
+            
+            let extrasCost = 0;
+            if (extras === 'tarp') extrasCost = 2200;
+            if (extras === 'oversize') extrasCost = 5500;
+            if (extras === 'custody') extrasCost = 7800;
+
+            const estimatedBase = baseFlagDrop + (distance * ratePerKm) + weightSurcharge + extrasCost;
+            const minPrice = Math.round((estimatedBase * 0.94) / 100) * 100;
+            const maxPrice = Math.round((estimatedBase * 1.10) / 100) * 100;
+
+            document.getElementById('est-price-range').textContent = 
+                `$${minPrice.toLocaleString('es-MX')} – $${maxPrice.toLocaleString('es-MX')}`;
+        }
+
+        // Initialize calculator values on load
+        updateCalculator();
+
+        // 5. Full Quote Form Real-Time Validation & Submission
+        document.getElementById('full-quote-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const origin = document.getElementById('calc-origin').value.trim();
+            const dest = document.getElementById('calc-dest').value.trim();
+            const cargo = document.getElementById('calc-cargo').value.trim();
+            const name = document.getElementById('calc-name').value.trim();
+            const email = document.getElementById('calc-email').value.trim();
+            const phone = document.getElementById('calc-phone').value.trim();
+
+            let isValid = true;
+
+            // Helper to toggle error messages
+            const validateField = (condition, errId, inputId) => {
+                const errEl = document.getElementById(errId);
+                const inputEl = document.getElementById(inputId);
+                if (!condition) {
+                    errEl.classList.remove('hidden');
+                    inputEl.classList.add('border-red-500');
+                    isValid = false;
+                } else {
+                    errEl.classList.add('hidden');
+                    inputEl.classList.remove('border-red-500');
+                }
+            };
+
+            validateField(origin.length >= 2, 'err-origin', 'calc-origin');
+            validateField(dest.length >= 2, 'err-dest', 'calc-dest');
+            validateField(cargo.length >= 2, 'err-cargo', 'calc-cargo');
+            validateField(name.length >= 2, 'err-name', 'calc-name');
+            validateField(/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email), 'err-email', 'calc-email');
+            validateField(phone.length >= 7, 'err-phone', 'calc-phone');
+
+            if (!isValid) return;
+
+            // Show confirmation screen
+            const unitLabel = document.getElementById('summary-unit').textContent;
+            const priceRange = document.getElementById('est-price-range').textContent;
+            const weight = document.getElementById('calc-weight').value;
+
+            document.getElementById('confirmation-summary-box').innerHTML = `
+                <div class="flex justify-between"><span class="text-slate-500">Cliente:</span> <strong>${name}</strong></div>
+                <div class="flex justify-between"><span class="text-slate-500">Ruta:</span> <strong>${origin} → ${dest}</strong></div>
+                <div class="flex justify-between"><span class="text-slate-500">Equipo:</span> <strong>${unitLabel} (${weight} Ton)</strong></div>
+                <div class="flex justify-between"><span class="text-slate-500">Mercancía:</span> <strong>${cargo}</strong></div>
+                <div class="flex justify-between border-t border-slate-100 pt-1.5 mt-1.5"><span class="text-slate-500">Estimado Ref.:</span> <strong class="text-brand-orange">${priceRange} MXN</strong></div>
+            `;
+
+            document.getElementById('full-quote-form').classList.add('hidden');
+            document.getElementById('quote-confirmation').classList.remove('hidden');
+        });
+
+        function resetQuoteForm() {
+            document.getElementById('full-quote-form').reset();
+            updateCalculator();
+            document.getElementById('quote-confirmation').classList.add('hidden');
+            document.getElementById('full-quote-form').classList.remove('hidden');
+        }
+
+        // 6. Privacy Modal Controller
+        function togglePrivacyModal(show) {
+            const modal = document.getElementById('privacy-modal');
+            if (show) {
+                modal.classList.remove('hidden');
+            } else {
+                modal.classList.add('hidden');
+            }
+        }
+
+        // 7. Smooth Scroll Reveal Observer
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, { threshold: 0.12 });
+
+        document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+    </script>
+</body>
+</html>
